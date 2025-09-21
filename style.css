@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    flex: none;
+}
+
+.container div {
+    border: 1px solid black;
+    height: 6.25%;
+    width: 6.25%;
+}
