@@ -1,13 +1,36 @@
+// --- 1. SELECT DOM ELEMENTS ---
 const container = document.querySelector('.container');
+const button = document.querySelector('button');
 
+// --- 2. MAKE THE GRID ---
 for (let i=0; i<256; i++) {
     const div = document.createElement('div');
     container.appendChild(div);
 }
-
 const grid = document.querySelectorAll('.container div');
-grid.forEach(hover => {
+
+// --- 3. DEFINE FUNCTION ---
+function newGrid() {
+    container.innerHTML = '';
+    const gridSize = +prompt('How many squares per side? (Max : 100)' );
+    if (gridSize > 0 && gridSize < 101) {
+        for (let i=0; i<(gridSize*gridSize); i++) {
+            const div = document.createElement('div');
+            div.style.cssText = `height : calc(100% / ${gridSize}); width : calc(100% / ${gridSize})`;
+            container.appendChild(div);
+            hoverGrid(div);
+        };
+    } else {
+        alert('Invalid number. Please enter within the range 1 - 100.');
+    }
+}
+
+function hoverGrid(hover) {
     hover.addEventListener('mouseenter', (e) => {
-        e.target.style.cssText = 'background: blue;';
-    })
-});
+        e.target.style.backgroundColor = 'blue';        
+    }
+)}
+
+// --- 4. ADD EVENT LISTENERS ---
+button.addEventListener('click', newGrid);
+grid.forEach(hoverGrid);
