@@ -27,10 +27,16 @@ function newGrid() {
 
 function hoverGrid(hover) {
     hover.addEventListener('mouseenter', (e) => {
-        e.target.style.backgroundColor = 'blue';
-        let currentOpacity = parseFloat(e.target.style.opacity || 0);
-        let newOpacity = Math.min(currentOpacity + 0.1, 1);
-        e.target.style.opacity = newOpacity;     
+        // e.target.style.backgroundColor = 'blue';
+        const letter = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letter[Math.floor(Math.random() * 16)];
+        }
+        e.target.style.backgroundColor = color;
+        // let currentOpacity = parseFloat(e.target.style.opacity || 0);
+        // let newOpacity = Math.min(currentOpacity + 0.1, 1);
+        // e.target.style.opacity = newOpacity;     
     }
 )}
 
