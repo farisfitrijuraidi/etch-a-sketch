@@ -27,7 +27,10 @@ function newGrid() {
 
 function hoverGrid(hover) {
     hover.addEventListener('mouseenter', (e) => {
-        e.target.style.backgroundColor = 'blue';        
+        e.target.style.backgroundColor = 'blue';
+        let currentOpacity = parseFloat(e.target.style.opacity || 0);
+        let newOpacity = Math.min(currentOpacity + 0.1, 1);
+        e.target.style.opacity = newOpacity;     
     }
 )}
 
